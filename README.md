@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ziad Hamoda — Interactive Developer Portfolio
 
-## Getting Started
+![Screenshot of the portfolio](https://raw.githubusercontent.com/ziad7amoda/ziad-portfolio/master/public/projects/devfolio.png)
 
-First, run the development server:
+A modern, highly interactive, and performant developer portfolio built to showcase engineering capabilities and design sensibilities. Designed with a dark-mode-first "techy" aesthetic, emphasizing tactile feedback, smooth hardware-accelerated animations, and responsive micro-interactions.
+
+## 🚀 Live Demo
+
+[**ziad-hamoda.vercel.app**](https://ziad-hamoda.vercel.app) *(Replace with your actual Vercel URL once deployed)*
+
+## ✨ Key Features
+
+- **Advanced Animations:** Fluid entrances, scrolling interactions, and state transitions powered by `framer-motion`.
+- **Dynamic Theming System:** A floating palette allowing users to instantly snap between custom accent colors (Emerald, Neon Pink, Cyber Yellow, Ocean Blue) utilizing underlying CSS variables.
+- **3D Parallax Tilt:** Depth-sensing interface cards (`TiltWrapper`) that respond organically to cursor movement for a premium tactile feel.
+- **Interactive Physics Engine ("Easter Egg"):** A hidden module integrated with `matter-js`. Triggered via the footer, it injects a 2D constraint-based physics simulation where UI elements yield to gravity and become fully draggable rigid bodies.
+- **Magnetic Buttons:** Custom cursor-attracting call-to-action buttons providing satisfying UX friction.
+- **Responsive Architecture:** Fully optimized for mobile, tablet, and ultra-wide displays without compromising animation fidelity.
+- **Infinite Marquee:** A dual-row auto-scrolling tech stack carousel built with native CSS transforms.
+
+## 💻 Tech Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Language:** TypeScript
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Physics Engine:** [Matter.js](https://brm.io/matter-js/)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+## 🛠️ Getting Started
+
+First, clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/ziad7amoda/ziad-portfolio.git
+cd ziad-portfolio
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **`src/app/`**: Next.js App Router core pages and global CSS.
+* **`src/components/`**: Reusable isolated UI elements (e.g., `TiltWrapper`, `GravityOverlay`, `HeroVisual`).
+* **`src/data/`**: Centralized, single-source-of-truth datastores containing project details, experience, and configuration (`portfolio.ts`).
+* **`public/`**: Static assets, including project screenshots and downloadable resumes.
 
-## Learn More
+## 🤝 Contributing
 
-To learn more about Next.js, take a look at the following resources:
+This is a personal portfolio repository, but feel free to fork it, study the physics and animation implementations, and use it as inspiration for your own projects!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open-sourced under the MIT License.
