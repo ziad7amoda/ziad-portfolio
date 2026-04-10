@@ -118,33 +118,40 @@ export default function GravityOverlay({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[300] bg-zinc-950/90 backdrop-blur-sm overflow-hidden touch-none"
-      ref={sceneRef}
     >
-      <div className="absolute top-8 left-0 right-0 flex justify-center pointer-events-none">
-        <h2 className="text-zinc-500 font-mono text-sm tracking-widest uppercase">Gravity Enabled // Drag to Throw</h2>
+      {/* Interaction layer for Matter.js */}
+      <div ref={sceneRef} className="absolute inset-0 z-0" />
+
+      <div className="absolute top-6 sm:top-8 left-0 right-0 flex justify-center pointer-events-none z-10 px-4 text-center">
+        <h2 className="text-zinc-500 font-mono text-xs sm:text-sm tracking-widest uppercase items-center">
+          Gravity Enabled <br className="sm:hidden" /> <span className="hidden sm:inline">//</span> Drag to Throw
+        </h2>
       </div>
 
       <button
         onClick={onClose}
-        className="absolute top-8 right-8 z-[310] px-4 py-2 border border-accent-500/50 bg-accent-500/10 text-accent-400 rounded-lg hover:bg-accent-500 hover:text-zinc-950 transition-colors font-mono text-sm cursor-pointer"
+        onTouchStart={(e) => { e.stopPropagation(); onClose(); }}
+        className="absolute top-16 sm:top-8 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-8 z-[310] px-4 py-2 border border-accent-500/50 bg-accent-500/10 text-accent-400 rounded-lg hover:bg-accent-500 hover:text-zinc-950 transition-colors font-mono text-sm cursor-pointer whitespace-nowrap"
       >
         Restore Gravity
       </button>
 
       {/* The DOM elements that represent the physics bodies */}
-      {skills.map((skill, i) => (
-        <div
-          key={skill}
-          ref={(el) => {
-            domRefs.current[i] = el;
-          }}
-          className="absolute top-0 left-0 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700 shadow-xl font-mono text-sm text-zinc-300 pointer-events-none select-none"
-          // We set an initial transform offscreen so it doesn't flash in top-left before physics loop starts
-          style={{ transform: "translate(-1000px, -1000px)" }}
-        >
-          {skill}
-        </div>
-      ))}
+      <div className="absolute inset-0 z-20 pointer-events-none">
+        {skills.map((skill, i) => (
+          <div
+            key={skill}
+            ref={(el) => {
+              domRefs.current[i] = el;
+            }}
+            className="absolute top-0 left-0 px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-700 shadow-xl font-mono text-sm text-zinc-300 pointer-events-none select-none"
+            // We set an initial transform offscreen so it doesn't flash in top-left before physics loop starts
+            style={{ transform: "translate(-1000px, -1000px)" }}
+          >
+            {skill}
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 }
