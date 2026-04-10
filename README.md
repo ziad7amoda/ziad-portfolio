@@ -1,12 +1,13 @@
 # Ziad Hamoda — Interactive Developer Portfolio
 
-![Screenshot of the portfolio](https://raw.githubusercontent.com/ziad7amoda/ziad-portfolio/master/public/projects/devfolio.png)
+![Screenshot of the portfolio](<img width="1920" height="1080" alt="Screenshot (517)" src="https://github.com/user-attachments/assets/a68c8563-c2d6-4f3f-8e90-f69cbd703b4d" />
+)
 
 A modern, highly interactive, and performant developer portfolio built to showcase engineering capabilities and design sensibilities. Designed with a dark-mode-first "techy" aesthetic, emphasizing tactile feedback, smooth hardware-accelerated animations, and responsive micro-interactions.
 
 ## 🚀 Live Demo
 
-[**ziad-hamoda.vercel.app**](https://ziad-hamoda.vercel.app) *(Replace with your actual Vercel URL once deployed)*
+[**ziad-hamoda.vercel.app**](https://ziad-portfolio-roan.vercel.app/) *(Replace with your actual Vercel URL once deployed)*
 
 ## ✨ Key Features
 
