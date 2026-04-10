@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Custom Accent Colors hooked up to CSS Variables */
+  --color-accent-400: var(--theme-accent-400, #34d399);
+  --color-accent-500: var(--theme-accent-500, #10b981);
+}
+
+:root {
+  /* Default: Emerald */
+  --theme-accent-400: #34d399; /* emerald-400 */
+  --theme-accent-500: #10b981; /* emerald-500 */
+}
+
+/* Theme Presets */
+.theme-emerald {
+  --theme-accent-400: #34d399;
+  --theme-accent-500: #10b981;
+}
+
+.theme-neon {
+  --theme-accent-400: #f472b6; /* pink-400 */
+  --theme-accent-500: #ec4899; /* pink-500 */
+}
+
+.theme-cyber {
+  --theme-accent-400: #facc15; /* yellow-400 */
+  --theme-accent-500: #eab308; /* yellow-500 */
+}
+
+.theme-ocean {
+  --theme-accent-400: #38bdf8; /* sky-400 */
+  --theme-accent-500: #0ea5e9; /* sky-500 */
+}
+
+/* ── Base Styles ─────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Selection ───────────────────────────────────────────── */
+::selection {
+  background-color: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+  
+  .animate-marquee-reverse {
+    animation: marquee-reverse 35s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(calc(-50% - 1rem));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
