@@ -13,6 +13,8 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-24 sm:py-32">
+      {/* Subtle grid backdrop */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: "linear-gradient(var(--theme-accent-500) 1px, transparent 1px), linear-gradient(90deg, var(--theme-accent-500) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
       <div className="max-w-4xl mx-auto px-6" ref={ref}>
         {/* Section header */}
         <motion.div
@@ -22,10 +24,10 @@ export default function About() {
           className="mb-12"
         >
           <p className="font-mono text-accent-400 text-sm mb-2 tracking-wider">
-            // about me
+            01
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Get to know me
+            About <span className="text-accent-400 font-accent text-4xl sm:text-5xl">Me</span>
           </h2>
           <div className="mt-4 h-px w-16 bg-gradient-to-r from-accent-500 to-transparent" />
         </motion.div>
@@ -43,17 +45,6 @@ export default function About() {
               {personalInfo.about}
             </p>
 
-            {personalInfo.openToWork && (
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent-500/30 bg-accent-500/5">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-500" />
-                </span>
-                <span className="font-mono text-xs text-accent-400 tracking-wide">
-                  Currently open to opportunities
-                </span>
-              </div>
-            )}
           </motion.div>
 
           {/* Stats column */}

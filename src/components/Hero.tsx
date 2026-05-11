@@ -6,15 +6,15 @@ import MagneticButton from "@/components/MagneticButton";
 import HeroVisual from "@/components/HeroVisual";
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    const el = document.querySelector("#projects");
+  const scrollTo = (id: string) => {
+    const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden scanlines"
     >
       {/* Animated dot grid background */}
       <div className="absolute inset-0 z-0">
@@ -28,9 +28,9 @@ export default function Hero() {
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/90 to-zinc-950" />
-        {/* Animated Glow spot */}
-        <motion.div 
-          animate={{ 
+        {/* Primary glow */}
+        <motion.div
+          animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
           }}
@@ -39,13 +39,45 @@ export default function Hero() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent-500/20 rounded-full blur-[120px] pointer-events-none" 
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent-500/20 rounded-full blur-[120px] pointer-events-none"
+        />
+        {/* Secondary offset glow for depth */}
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.15, 0.3, 0.15],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-accent-400/10 rounded-full blur-[100px] pointer-events-none"
         />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         {/* Left Column: Text Content */}
         <div className="text-center lg:text-left flex flex-col items-center lg:items-start text-balance">
+          {personalInfo.openToWork && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="mb-6"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-500/30 bg-accent-500/5 backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-500" />
+                </span>
+                <span className="font-mono text-xs text-accent-400 tracking-wide">
+                  Available for Work
+                </span>
+              </div>
+            </motion.div>
+          )}
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,7 +92,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 gradient-text"
           >
             {personalInfo.name}
           </motion.h1>
@@ -68,10 +100,18 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="font-mono text-zinc-400 text-base sm:text-lg mb-10 tracking-wide"
+          transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+          className="text-xl sm:text-2xl text-zinc-300 mb-3 font-medium"
         >
-          {/* TODO: Replace tagline */}
+          Building <span className="text-accent-400 font-accent text-2xl sm:text-3xl">performant</span> web applications
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
+          className="font-mono text-zinc-500 text-sm sm:text-base mb-10 tracking-wide"
+        >
           {personalInfo.tagline}
         </motion.p>
 
@@ -82,10 +122,16 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 relative z-20 w-full lg:w-auto"
         >
           <MagneticButton
-            onClick={scrollToProjects}
+            onClick={() => scrollTo("#projects")}
             className="group relative px-8 py-3.5 rounded-xl bg-accent-500 text-zinc-950 font-semibold text-sm transition-all duration-300 hover:bg-accent-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.4)]"
           >
             View Projects
+          </MagneticButton>
+          <MagneticButton
+            onClick={() => scrollTo("#contact")}
+            className="px-8 py-3.5 rounded-xl border border-accent-500/50 text-accent-400 font-semibold text-sm hover:bg-accent-500/10 hover:shadow-[0_0_20px_rgba(52,211,153,0.2)] transition-all duration-300"
+          >
+            Get in Touch
           </MagneticButton>
           <a
             href={`${personalInfo.resumeUrl}?v=${Date.now()}`}

@@ -45,7 +45,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="fixed inset-0 bg-zinc-950/80 backdrop-blur-sm cursor-pointer"
+        className="fixed inset-0 bg-zinc-950/85 backdrop-blur-md cursor-pointer"
         aria-hidden="true"
       />
 
@@ -55,7 +55,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="relative w-full max-w-4xl bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden my-auto cursor-auto"
+        className="relative w-full max-w-4xl bg-zinc-900/95 backdrop-blur-xl border border-zinc-800/80 rounded-2xl shadow-[0_25px_80px_rgba(0,0,0,0.7)] overflow-hidden my-auto cursor-auto"
       >
         {/* Header Image Pattern / Background */}
         <div className="h-32 sm:h-48 w-full bg-zinc-800 relative overflow-hidden">

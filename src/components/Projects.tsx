@@ -42,8 +42,8 @@ export default function Projects() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <p className="font-mono text-accent-400 text-sm mb-2 tracking-wider">// case studies</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">Things I&apos;ve built</h2>
+            <p className="font-mono text-accent-400 text-sm mb-2 tracking-wider">03</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">Project <span className="text-accent-400 font-accent text-4xl sm:text-5xl">Archive</span></h2>
             <div className="mt-4 h-px w-16 bg-gradient-to-r from-accent-500 to-transparent" />
           </motion.div>
 
@@ -64,10 +64,10 @@ export default function Projects() {
                 <TiltWrapper enableHoverGlow={true} className="w-full">
                   <article
                     onClick={() => setSelectedProject(project)}
-                    className="group relative rounded-3xl border border-zinc-800/60 bg-zinc-900 shadow-2xl p-8 sm:p-12 transition-all duration-500 hover:border-accent-500/30 cursor-pointer w-full overflow-hidden"
+                    className="group relative rounded-3xl border border-zinc-800/60 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-8 sm:p-12 transition-all duration-500 hover:border-accent-500/30 cursor-pointer w-full overflow-hidden holo-border"
                   >
                     {/* Glow effect on hover */}
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-500/10 via-transparent to-accent-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                     <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
                       <div>

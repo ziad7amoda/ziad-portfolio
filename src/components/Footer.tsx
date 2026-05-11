@@ -38,9 +38,10 @@ export default function Footer() {
   const [showGravity, setShowGravity] = useState(false);
 
   return (
-    <footer className="relative border-t border-zinc-800/50">
-      {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent-500/30 to-transparent" />
+    <footer className="relative border-t border-zinc-800/30">
+      {/* Top glow line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-accent-500/40 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-accent-500/20 to-transparent blur-sm" />
 
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">

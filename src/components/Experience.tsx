@@ -19,10 +19,10 @@ export default function Experience() {
           className="mb-16"
         >
           <p className="font-mono text-accent-400 text-sm mb-2 tracking-wider">
-            // experience
+            02
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Where I&apos;ve Worked
+            Experience <span className="text-accent-400 font-accent text-4xl sm:text-5xl">Timeline</span>
           </h2>
           <div className="mt-4 h-px w-16 bg-gradient-to-r from-accent-500 to-transparent" />
         </motion.div>
@@ -37,7 +37,7 @@ export default function Experience() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                  className="relative pl-8 md:pl-0 md:grid md:grid-cols-4 md:gap-8 group"
+                  className="relative pl-8 md:pl-0 md:grid md:grid-cols-4 md:gap-8 group rounded-2xl md:p-6 md:hover:bg-zinc-900/40 md:transition-all md:duration-500"
                 >
                   {/* Timeline dot (Mobile mainly, hidden on desktop layout below) */}
                   <div className="absolute left-[-5px] top-1.5 h-2.5 w-2.5 rounded-full bg-zinc-800 border-2 border-zinc-950 md:hidden group-hover:bg-accent-400 transition-colors duration-300" />

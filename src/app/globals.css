@@ -5,6 +5,7 @@
   --color-foreground: #fafafa;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-accent: var(--font-caveat);
   
   /* Custom Accent Colors hooked up to CSS Variables */
   --color-accent-400: var(--theme-accent-400, #34d399);
@@ -52,10 +53,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Selection ───────────────────────────────────────────── */
+/* ── Selection (follows active theme) ────────────────────── */
 ::selection {
-  background-color: rgba(52, 211, 153, 0.2);
-  color: #34d399;
+  background-color: color-mix(in srgb, var(--theme-accent-500) 25%, transparent);
+  color: var(--theme-accent-400);
 }
 
 /* ── Scrollbar ───────────────────────────────────────────── */
@@ -76,11 +77,100 @@ body {
   background: #3f3f46;
 }
 
+/* ── Film Grain Overlay ──────────────────────────────────── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ── Animated Gradient Text ─────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--theme-accent-400) 0%,
+    #ffffff 40%,
+    var(--theme-accent-400) 60%,
+    #ffffff 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ── Holographic Border Glow ────────────────────────────── */
+.holo-border {
+  position: relative;
+}
+
+.holo-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    transparent 20%,
+    var(--theme-accent-500) 40%,
+    transparent 60%,
+    var(--theme-accent-400) 80%,
+    transparent 100%
+  );
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: holo-shift 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.holo-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes holo-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ── Scanline Effect ────────────────────────────────────── */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  z-index: 1;
+}
+
 @layer utilities {
   .animate-marquee {
     animation: marquee 35s linear infinite;
   }
-  
+
   .animate-marquee-reverse {
     animation: marquee-reverse 35s linear infinite;
   }

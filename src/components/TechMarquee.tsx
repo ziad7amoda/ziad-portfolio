@@ -14,7 +14,7 @@ export default function TechMarquee() {
   const secondRow = [...duplicatedSkills].sort(() => 0.5 - Math.random());
 
   return (
-    <div className="relative py-12 overflow-hidden bg-zinc-950/50 border-y border-zinc-900 shadow-2xl flex flex-col gap-6 w-full">
+    <div className="relative py-12 overflow-hidden bg-zinc-950/50 border-y border-accent-500/5 shadow-[0_0_60px_rgba(0,0,0,0.5)] flex flex-col gap-6 w-full">
       
       {/* Edge gradient masks for seamless fade-out effect */}
       <div className="absolute inset-y-0 left-0 w-24 sm:w-48 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />

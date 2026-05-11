@@ -67,10 +67,10 @@ export default function HeroVisual() {
     >
       <TiltWrapper enableHoverGlow={true} className="group">
         {/* Background glowing blobs */}
-        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent-500/30 to-teal-500/30 blur-2xl opacity-50 animate-pulse" />
+        <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-accent-500/20 via-accent-400/10 to-accent-500/20 blur-2xl opacity-60 animate-pulse" />
 
         <div
-          className="relative rounded-xl border border-zinc-800 bg-zinc-950/80 backdrop-blur-md shadow-2xl overflow-hidden"
+          className="relative rounded-xl border border-zinc-800/80 bg-zinc-950/90 backdrop-blur-md shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden holo-border"
         >
           {/* Window Header */}
           <div className="flex items-center px-4 py-3 border-b border-zinc-800/80 bg-zinc-900/50">

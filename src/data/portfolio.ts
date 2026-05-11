@@ -7,6 +7,7 @@ export const personalInfo = {
   email: "ziad7amoda@gmail.com",
   openToWork: true,
   resumeUrl: "/resume.pdf",
+  whatsapp: ["+201024496945", "+96871510937"],
   socialLinks: {
     github: "https://github.com/ziad7amoda",
     linkedin: "https://www.linkedin.com/in/ziad-hamoda/",
@@ -55,6 +56,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "shawerni-consultation",
+    name: "Shawerni",
+    description:
+      "A full-stack expert consultation platform enabling users to discover and book 1-on-1 video and voice sessions with verified experts across tech, business, law, and finance.",
+    techStack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "OAuth", "JWT"],
+    liveUrl: "https://shwerni.net",
+    githubUrl: "",
+    image: "/projects/shawerni.png",
+    problem: "Connecting users with verified domain experts for paid consultations while managing multi-role access control, real-time scheduling, and secure payment processing.",
+    solution: "Built OAuth and JWT-based multi-role access control (expert/client/admin), real-time availability scheduling, and integrated OMPay payment gateway for seamless session billing.",
+    features: ["Multi-role Auth (Expert/Client/Admin)", "Real-time Availability Scheduling", "OMPay Payment Integration", "1-on-1 Video & Voice Sessions"],
+  },
+  {
     id: "teleme-healthcare",
     name: "Teleme",
     description:
@@ -86,8 +100,8 @@ export const projects: Project[] = [
     description:
       "A high-conversion landing page and marketing website designed to showcase features and drive downloads for the Nashd mobile application on the App Store.",
     techStack: ["Next.js", "React", "Tailwind CSS", "Vercel"],
-    liveUrl: "https://nashd-website.vercel.app/",
-    githubUrl: "https://github.com/ziad7amoda/nashd",
+    liveUrl: "https://www.nashd.app/",
+    githubUrl: "https://github.com/nashadllc/nashd-website",
     image: "/projects/nashd.png",
     problem: "The mobile app needed an SEO-optimized digital presence to clearly explain its value proposition and directly funnel users to the App Store.",
     solution: "Built a lightning-fast, responsive marketing site emphasizing clear calls-to-action, smooth interactions, and optimized assets to maximize user acquisition.",

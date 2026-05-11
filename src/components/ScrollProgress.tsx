@@ -11,11 +11,15 @@ export default function ScrollProgress() {
   });
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-accent-500 origin-left z-[100]"
-      style={{ scaleX }}
-      // subtle glow
-      initial={{ boxShadow: "0 0 10px rgba(52, 211, 153, 0.5)" }}
-    />
+    <>
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent-500 via-accent-400 to-accent-500 origin-left z-[100]"
+        style={{ scaleX }}
+      />
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[6px] bg-accent-500/30 origin-left z-[99] blur-sm"
+        style={{ scaleX }}
+      />
+    </>
   );
 }
